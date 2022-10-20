@@ -43,3 +43,6 @@ elif game_mode == 2:
     print("Choose your starter pokemon: ")
     user_guess = str(input("Charmander,Bulbasaur or Squirtle ? "))
     choose_your_pokemon(user_guess)
+else: 
+    print("invalid option, retry")
+    game_mode = int(input("Choose which game mode you want "))
