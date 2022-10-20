@@ -24,17 +24,17 @@ def Get_Result(text):
 def choose_your_pokemon(name):
     name.lower()
     if name == "charmander":
-        image = Image.open('src\images\\charmander.png')
+        image = Image.open('src\\images\\charmander.png')
         image.show()    
     elif name == "squirtle":
-        image = Image.open('src\images\\squirtle.png')
+        image = Image.open('src\\images\\squirtle.png')
         image.show()
     elif name == "bulbasaur":
-        image = Image.open("src\images\\bulbasaur.png")
+        image = Image.open("src\\images\\bulbasaur.png")
         image.show()
 
 print("\nWelcome to Guess Pokemon Game!\n")
-print("Game number pokemon: 1 - Chosse your pokemon: 2")
+print("Game number pokemon: 1 - Chosse your pokemon: 2 ")
 game_mode = int(input("Choose which game mode you want "))
 if game_mode == 1:
     user_guess = input(f"\nCan you guess what's pokemon number {random_number}?\n")
