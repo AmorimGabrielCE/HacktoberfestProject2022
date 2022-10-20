@@ -30,10 +30,6 @@ def Get_All_Types():
 
     return list_all_types
 
-listTypes = pd.DataFrame(Get_All_Types())
-pokemon = Get_Random_Pokemon()
-pokemon_type = Get_Type_Pokemon()
-
 def Get_Result(option):
     if (type(option) is int):
         if option > 19 or option < 0:
@@ -46,6 +42,10 @@ def Get_Result(option):
             print("\nOh no! It's incorrect, sorry.\nTry again!")
             user_guess = int(input(f"\nCan you guess what type this pokemon is?\n ---[ {pokemon} ]---\n\nOptions:\n{listTypes}\nSelect: "))
             Get_Result(user_guess)
+
+listTypes = pd.DataFrame(Get_All_Types())
+pokemon = Get_Random_Pokemon()
+pokemon_type = Get_Type_Pokemon()
 
 print("\nWelcome to Guess Pokemon Game!\n")
 user_guess = int(input(f"\nCan you guess what type this pokemon is?\n ---[ {pokemon} ]---\n\nOptions:\n{listTypes}\nSelect: "))
