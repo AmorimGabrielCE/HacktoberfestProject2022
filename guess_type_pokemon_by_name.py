@@ -6,22 +6,18 @@ def random_number(min:int, max:int):
     number = random.randint(min, max-1)
     return number
 
-def Get_Random_Pikamon():
-    first_generation = requests.get("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0")
-    first_generation = first_generation.json()
+def Get_Random_Pokemon():
+    get_pokemon = requests.get("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0")
+    get_pokemon = get_pokemon.json()
     number= random_number(0,1154)
-    random_pokemon = first_generation['results'][number]['name']
+    random_pokemon = get_pokemon['results'][number]['name']
     return random_pokemon
-
-pokemon = Get_Random_Pikamon()
 
 def Get_Type_Pokemon():
     pokemon_type = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pokemon}/")
     pokemon_type = pokemon_type.json()
     Random_pokemon_type = pokemon_type['types'][0]['type']['name']
     return Random_pokemon_type
-
-pokemon_type = Get_Type_Pokemon()
 
 def Get_All_Types():
     types = requests.get(f"https://pokeapi.co/api/v2/type/")
@@ -35,6 +31,8 @@ def Get_All_Types():
     return list_all_types
 
 listTypes = pd.DataFrame(Get_All_Types())
+pokemon = Get_Random_Pokemon()
+pokemon_type = Get_Type_Pokemon()
 
 def Get_Result(option):
     if (type(option) is int):
